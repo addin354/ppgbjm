@@ -9,7 +9,7 @@ Route::get('/deploy-setup', function () {
     $output = [];
 
     try {
-        Artisan::call('migrate:force', ['--seed' => true]);
+        Artisan::call('migrate', ['--force' => true, '--seed' => true]);
         $output[] = "1. Migration & Seeder: " . Artisan::output();
 
         @Artisan::call('storage:link');
