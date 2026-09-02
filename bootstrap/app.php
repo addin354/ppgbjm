@@ -1,6 +1,6 @@
 <?php
 
-if (! file_exists(dirname(__DIR__) . '/.env')) {
+if (! file_exists(dirname(__DIR__) . '/.env') || str_contains(file_get_contents(dirname(__DIR__) . '/.env'), 'SESSION_DRIVER=database')) {
     if (file_exists(dirname(__DIR__) . '/.env.hostinger')) {
         @copy(dirname(__DIR__) . '/.env.hostinger', dirname(__DIR__) . '/.env');
     } elseif (file_exists(dirname(__DIR__) . '/.env.example')) {
