@@ -12,8 +12,14 @@ Route::get('/deploy-setup', function () {
         Artisan::call('migrate', ['--force' => true, '--seed' => true]);
         $output[] = "1. Migration & Seeder: " . Artisan::output();
 
-        @Artisan::call('storage:link');
-        $output[] = "2. Storage Link: OK";
+        try {
+            if (! file_exists(public_path('storage'))) {
+                @symlink(storage_path('app/public'), public_path('storage'));
+            }
+            $output[] = "2. Storage Link: OK";
+        } catch (\Throwable $e) {
+            $output[] = "2. Storage Link: Skipped";
+        }
 
         Artisan::call('config:clear');
         Artisan::call('cache:clear');
