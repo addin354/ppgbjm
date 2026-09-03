@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             DemoAdminSeeder::class,
+            GenerusSeeder::class,
         ]);
     }
 }
