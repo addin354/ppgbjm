@@ -17,6 +17,7 @@ class Generus extends Model
         'tempat_lahir',
         'tanggal_lahir',
         'jenis_kelamin',
+        'kelas',
         'alamat',
         'nama_ortu',
         'telepon_ortu',

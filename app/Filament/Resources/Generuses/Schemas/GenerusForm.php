@@ -34,12 +34,25 @@ class GenerusForm
                 DatePicker::make('tanggal_lahir')
                     ->label('Tanggal lahir')
                     ->helperText('Opsional; berguna untuk pengelompokan usia.'),
-                TextInput::make('jenis_kelamin')
+                Select::make('jenis_kelamin')
                     ->label('Jenis kelamin')
+                    ->options([
+                        'L' => 'Laki-Laki (L)',
+                        'P' => 'Perempuan (P)',
+                    ])
                     ->required()
-                    ->default('L')
-                    ->placeholder('L atau P')
-                    ->helperText('Isi L (laki-laki) atau P (perempuan).'),
+                    ->default('L'),
+                Select::make('kelas')
+                    ->label('Kelas Generus')
+                    ->options([
+                        'BALITA' => 'BALITA',
+                        'CABERAWIT' => 'CABERAWIT',
+                        'PRA REMAJA' => 'PRA REMAJA',
+                        'REMAJA' => 'REMAJA',
+                        'USMAN' => 'USMAN',
+                    ])
+                    ->searchable()
+                    ->placeholder('Pilih kelas generus'),
                 Textarea::make('alamat')
                     ->label('Alamat')
                     ->placeholder('Contoh: Jl. … RT/RW …')

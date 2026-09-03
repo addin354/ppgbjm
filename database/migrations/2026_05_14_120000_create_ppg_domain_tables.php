@@ -57,6 +57,7 @@ return new class extends Migration
                 $table->string('tempat_lahir')->nullable();
                 $table->date('tanggal_lahir')->nullable();
                 $table->string('jenis_kelamin', 1)->default('L');
+                $table->string('kelas')->nullable();
                 $table->text('alamat')->nullable();
                 $table->string('nama_ortu')->nullable();
                 $table->string('telepon_ortu')->nullable();

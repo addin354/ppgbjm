@@ -2413,6 +2413,7 @@ class GenerusSeeder extends Seeder
                     [
                         'nama_ortu' => trim($item['ortu']),
                         'tanggal_lahir' => $tanggalLahir,
+                        'kelas' => !empty($item['kelas']) ? trim($item['kelas']) : null,
                         'is_active' => true,
                     ]
                 );
